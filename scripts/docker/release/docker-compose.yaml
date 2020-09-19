@@ -17,7 +17,7 @@ services:
   #      - postgres
 
   galaxy-api:
-    image: galaxy:latest
+    image: mansong/galaxy:latest
     command: ['run', 'api']
     environment:
       - GALAXY_SECRET_KEY=secret
@@ -32,7 +32,7 @@ services:
       - influxdb
 
   galaxy-celery-beat:
-    image: galaxy:latest
+    image: mansong/galaxy:latest
     command: ['run', 'celery-beat']
     environment:
       - GALAXY_SECRET_KEY=secret
@@ -45,7 +45,7 @@ services:
       - rabbitmq
 
   galaxy-celery-worker:
-    image: galaxy:latest
+    image: mansong/galaxy:latest
     command: ['run', 'celery-worker']
     environment:
       - GALAXY_SECRET_KEY=secret
@@ -59,7 +59,7 @@ services:
       - influxdb
 
   galaxy-pulp-rm:
-    image: galaxy:latest
+    image: mansong/galaxy:latest
     command: ['run', 'pulp-resource-manager']
     environment:
       - GALAXY_SECRET_KEY=secret
@@ -70,7 +70,7 @@ services:
       - redis
 
   galaxy-pulp-worker:
-    image: galaxy:latest
+    image: mansong/galaxy:latest
     command: ['run', 'pulp-worker']
     environment:
       - GALAXY_SECRET_KEY=secret
