@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: galaxy-ui
+  name: galaxy-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: galaxy-ui
+  template:
+    metadata:
+      labels:
+        app: galaxy-ui
+    spec:
+      containers:
+      - image: mansong/galaxy-static:latest
+        imagePullPolicy: "Always"
+        name: galaxy-ui
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
