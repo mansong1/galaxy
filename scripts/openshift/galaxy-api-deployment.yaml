@@ -28,6 +28,12 @@ spec:
           value: galaxy
         - name: GALAXY_SECRET_KEY
           value: secret
+        - name: GALAXY_AWS_ACCESS_KEY_ID
+          value: ''
+        - name: GALAXY_AWS_SECRET_ACCESS_KEY
+          value: ''
+        - name: GALAXY_AWS_STORAGE_BUCKET_NAME
+          value: ''
         image: mansong/galaxy:latest
         imagePullPolicy: "Always"
         name: galaxy-api
