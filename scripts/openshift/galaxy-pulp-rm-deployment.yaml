@@ -1,10 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.21.0 ()
-  creationTimestamp: null
   labels:
     app: galaxy-pulp-rm
   name: galaxy-pulp-rm
@@ -35,6 +31,10 @@ spec:
           value: ''
         - name: GALAXY_AWS_STORAGE_BUCKET_NAME
           value: ''
+        - name: GALAXY_REDIS_HOST
+          value: redis
+        - name: GALAXY_REDIS_PORT
+          value: '6379'
         image: mansong/galaxy:latest
         imagePullPolicy: "Always"
         name: galaxy-pulp-rm

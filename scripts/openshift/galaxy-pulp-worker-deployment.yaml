@@ -32,6 +32,10 @@ spec:
           value: ''
         - name: GALAXY_AWS_STORAGE_BUCKET_NAME
           value: ''
+        - name: GALAXY_REDIS_HOST
+          value: redis
+        - name: GALAXY_REDIS_PORT
+          value: '6379'
         image: mansong/galaxy:latest
         imagePullPolicy: "Always"
         name: galaxy-pulp-worker

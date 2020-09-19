@@ -20,4 +20,6 @@ spec:
         imagePullPolicy: "Always"
         name: redis
         resources: {}
+        ports:
+          - containerPort: 6379
       restartPolicy: Always
