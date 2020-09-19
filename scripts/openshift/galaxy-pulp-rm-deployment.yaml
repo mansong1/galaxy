@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 ()
+  creationTimestamp: null
+  labels:
+    app: galaxy-pulp-rm
+  name: galaxy-pulp-rm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: galaxy-pulp-rm
+  template:
+    metadata:
+      labels:
+        app: galaxy-pulp-rm
+    spec:
+      containers:
+      - args:
+        - run
+        - pulp-resource-manager
+        env:
+        - name: C_FORCE_ROOT
+          value: "1"
+        - name: GALAXY_DB_URL
+          value: postgres://galaxy:galaxy@postgres:5432/galaxy
+        - name: GALAXY_SECRET_KEY
+          value: secret
+        image: mansong/galaxy:latest
+        imagePullPolicy: "Always"
+        name: galaxy-pulp-rm
+        resources: {}
+      restartPolicy: Always

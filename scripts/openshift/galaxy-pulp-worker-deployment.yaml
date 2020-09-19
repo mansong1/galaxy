@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: galaxy-pulp-worker
+  name: galaxy-pulp-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: galaxy-pulp-worker
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: galaxy-pulp-worker
+    spec:
+      containers:
+      - args:
+        - run
+        - pulp-worker
+        env:
+        - name: C_FORCE_ROOT
+          value: "1"
+        - name: GALAXY_DB_URL
+          value: postgres://galaxy:galaxy@postgres:5432/galaxy
+        - name: GALAXY_SECRET_KEY
+          value: secret
+        image: mansong/galaxy:latest
+        imagePullPolicy: "Always"
+        name: galaxy-pulp-worker
+        resources: {}
+      restartPolicy: Always
