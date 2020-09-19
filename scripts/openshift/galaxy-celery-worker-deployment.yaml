@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: galaxy-celery-worker
+  name: galaxy-celery-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: galaxy-celery-worker
+  template:
+    metadata:
+      labels:
+        app: galaxy-celery-worker
+    spec:
+      containers:
+      - args:
+        - run
+        - celery-worker
+        env:
+        - name: C_FORCE_ROOT
+          value: "1"
+        - name: GALAXY_DB_URL
+          value: postgres://galaxy:galaxy@postgres:5432/galaxy
+        - name: GALAXY_RABBITMQ_HOST
+          value: rabbitmq
+        - name: GALAXY_RABBITMQ_PASSWORD
+          value: galaxy
+        - name: GALAXY_SECRET_KEY
+          value: secret
+        image: mansong/galaxy:latest
+        imagePullPolicy: "Always"
+        name: galaxy-celery-worker
+        resources: {}
+      restartPolicy: Always
