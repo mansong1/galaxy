@@ -5,7 +5,7 @@
 #    pip-compile --output-file=requirements/requirements.txt requirements/requirements.in
 #
 -e git+https://github.com/pennersr/django-allauth.git@83a0f77688f7d89939db454e3708d34e523accf3#egg=django-allauth  # via -r requirements/requirements.in
-aiohttp==3.5.4            # via -r requirements/requirements.in
+aiohttp==3.8.0            # via -r requirements/requirements.in
 alabaster==0.7.12         # via sphinx
 amqp==1.4.9               # via kombu
 ansible-lint==4.2.0       # via -r requirements/requirements.in, galaxy-importer
@@ -99,7 +99,7 @@ sqlparse==0.3.1           # via django
 toml==0.10.0              # via dynaconf
 typing-extensions==3.7.4.2  # via aiohttp
 uritemplate==3.0.0        # via coreapi, drf-yasg
-urllib3==1.24.3           # via botocore, requests
+urllib3==1.26.5           # via botocore, requests
 webencodings==0.5.1       # via bleach
 whitenoise==4.1.2         # via pulpcore
 wrapt==1.10.11            # via deprecated
