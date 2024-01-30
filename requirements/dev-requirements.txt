@@ -5,7 +5,7 @@
 #    pip-compile --output-file=requirements/dev-requirements.txt requirements/dev-requirements.in
 #
 -e git+https://github.com/pennersr/django-allauth.git@83a0f77688f7d89939db454e3708d34e523accf3#egg=django-allauth  # via -r requirements/requirements.in
-aiohttp==3.5.4            # via -r requirements/requirements.in
+aiohttp==3.9.2            # via -r requirements/requirements.in
 alabaster==0.7.12         # via sphinx
 amqp==1.4.9               # via kombu
 ansible-lint==4.2.0       # via -r requirements/requirements.in, galaxy-importer
